@@ -36,5 +36,5 @@ Example:  best of 5, best of 10 wins the game
 
 ### Prototype
 
-https://www.figma.com/file/VFutyLXZ4i2P8LeNdhETU5/Untitled?node-id=0%3A1
+
 ---
