@@ -1,4 +1,4 @@
-let cards = [
+const cards = [
   {name:'2 of Clubs' , value:'2' , img: '2C.png'},
   {name:'2 of Diamonds' , value:'2' , img: '2D.png'},
   {name:'2 of Spades' , value:'2' , img: '2S.png'},
@@ -53,5 +53,3 @@ let cards = [
   {name:'A\'s of Hearts' , value:'14' , img: 'AH.png'},
   
 ]
-
-module.exports = {cards}
