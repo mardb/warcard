@@ -11,17 +11,20 @@ const game = {
   player: {
     dealtCards: [],
     score: 0,
-    usedCards: []
+    usedCards: [],
+    roundsWon: 0,
   },
   //objects for CPU
   CPU: {
     dealtCards: [],
     score: 0,
-    usedCards: []
+    usedCards: [],
+    roundsWon:0,
+    
   },
 
   currentRound: 1,
-  maxround: 5,
+  maxround: 3,
 
   //shuffle cards
   shuffle: function(array) {
@@ -61,33 +64,77 @@ const game = {
 
   //figure out which card has higher value
   compareCards: function(playerCard, CPUCard) {
-    if (playerCard === CPUCard) {
-      console.log("Time to Battle!!!");
-    } else if (playerCard < CPUCard) {
-      this.CPU.usedCards.push(playerCard && CPUCard);
+    if (playerCard.value === CPUCard.value) {
+       this.player.score++ && this.CPU.score++;
+
+      console.log("its a draw.. Both player score! ");
+    } else if (playerCard.value < CPUCard.value) {
       console.log("oh no!");
-    } else if (playerCard > CPUCard) {
-      this.player.usedCards.push(playerCard && CPUCard);
+      this.CPU.score++;
+     
+    } else if (playerCard.value > CPUCard.value) {
       console.log("You're doing great!");
+      this.player.score++;
+      // console.log(this.player.score)
     }
+    console.log(`player: ${this.player.score} , CPU:${this.CPU.score}`)
   },
 
+
+  //function that goes to war
+
+    //deal the 4 cards and print 4 
+    //store cards in array 
+    //2 arrays in war function 
+
+
+
+//if i win, push all cards to CPU address
+// humanCards = player.dealtCards.splice(4)
+// cpuCards = cpu.dealtCards.splice(length - 4 ,4)
+//print by index 
+
+//write another compare function
+//print value of greate card
+// winner gets Pointer
+// point gets added to score
+
+// },
+endGame: function(){
+  while(game.player.dealtCards.length > 0){
+    this.gameplayLoop()
+  }
+},
+
+init: function(){
+  console.log('Welcome to Game of War! You will be dealt 26 cards, and you will choose the top card of each deck. The player with the higher value card wins a point. Players play until cards run out!');
+  this.shuffle(cards);
+  this.splitDeal(cards);
+  this.gameplayLoop()
+},
   gameplayLoop: function() {
-    this.shuffle(cards);
-    this.player.dealtCards;
-    this.CPU.dealtCards;
+    console.log(this.player.dealtCards);
+    console.log(this.CPU.dealtCards);
     this.playCard();
+    // this.compareCards()
     // console.log(cards);
   }
 };
 // console.log(game.shuffle(cards))
-game.shuffle(cards);
-game.splitDeal(cards);
+game.init()
+game.endGame()
+// game.gameplayLoop()
+
 // console.log(game.player.dealtCards);
-console.log(game.CPU.dealtCards);
+// console.log(game.CPU.dealtCards);
 // console.log(game.player);
 
-game.playCard();
+// game.playCard();
+
+//if 
+// 1. init function- shuffle(), splitDeal() cand calls gameplayLoop()
+// 2. gameplayLoop()- remove shuffle() and splitDeal(),
+//add playCard() , by default, play the last card on the array
 
 //the card with highest value will will both cards and put them in another array (used cards)
 //*******show the player whether they won or lost that round and the score

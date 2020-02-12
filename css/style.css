@@ -8,3 +8,10 @@ h2 {
   color: gold;
   
 }
+#playerContainer{
+  background-color: blue;
+}
+
+#CPUContainer{
+  background-color: red;
+}
