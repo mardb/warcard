@@ -67,6 +67,36 @@ const game = {
     if (playerCard.value === CPUCard.value) {
        this.player.dealtCards.splice(-3,0,)
        this.CPU.dealtCards.pop()
+      let playerCards;
+      let CPUCards;
+      while(playerCards === CPUCards && cards.length > 0){
+        if(cards.length > 4){
+          this.playerCard.pop()
+          this.playerCard.pop()
+          this.playerCard.pop()
+          playerCards = playerCard[-1]
+          this.CPUCard.pop()
+          this.CPUCard.pop()
+          this.CPUCard.pop()
+          CPUCards = CPUCard[-1]
+
+        } else if(cards.length > 0){
+         playerCards = this.playerCard.pop()
+         CPUCards = this.CPUCard.pop()
+        } else {
+          if(playerCard[0] >CPUCard[0]){
+            this.player.score+=5
+          } else {
+            this.CPU.score+=5
+          }
+          if(this.player.score > this.CPU.score){
+            console.log('Congratulations! You won! ')
+          } else {
+            console.log('Im sorry, the computer won. Better luck next time!!')
+          }
+          
+        }
+      }
        //pop 3 from player po 3 from CPU
        //only save the last one I popped from each one(4th card)
        //
@@ -122,16 +152,11 @@ init: function(){
 game.init()
 game.endGame()
 
-//if 
-// 1. init function- shuffle(), splitDeal() cand calls gameplayLoop()
-// 2. gameplayLoop()- remove shuffle() and splitDeal(),
-//add playCard() , by default, play the last card on the array
-
 
 // WAR SCENARIO
 // if there's at least 4 cards left in the deck:
 // remove 3 cards, and then compare the 4th card
-// 3x pop()s, or a splice that removes 3 elements, followed by a pop that saves to variable
+// 3x pop()s,---- or a splice that removes 3 elements, followed by a pop that saves to variable
 // do the same for the CPU
 // compare the player and the CPU's saved card
 // save variables to represent the player and CPU cards
