@@ -13,6 +13,9 @@ header {
   /* margin-bottom: 10px; */
   
 }
+main{
+  /* float: left; */
+}
 #playerContainer{
   margin:0 0 10px;
   padding: 10px 20px;
@@ -20,46 +23,50 @@ header {
   background-color: #1A4A1C;
 }
 
-#CPUContainer{
+#cpuContainer{
   margin:0 0 10px;
-  padding: 30px 20px;
+  padding: 10px 20px;
   border-radius: 10px;
   background-color: rgb(5, 112, 8);
 }
 
-.playerDealtCard{
+.playerDealtCards{
   height: 200px;
   width: 125px;
   border: 1px solid gray;
   border-radius: 12.5px;
-  background-color:white;
+  background-color:grey;
   box-shadow: 2px 2px 1px #302e2e;
   float: right;
 }
 
-.CPUDealtCard{
+.cpuDealtCards{
 
   height: 200px;
   width: 125px;
-  
   border: 1px solid gray;
   border-radius: 12.5px;
-  background-color:white;
+  background-color:grey;
   box-shadow: 2px 2px 1px #302e2e;
   
+}
+aside {
+  float: right;
+  border: 1px black solid;
+  padding: 5px;
 }
 
 #card-containerP{
 
-  position: absolute;
+  /* position: absolute;
   top: 200px;
   left: 200px;
-  border: 3px;
+  border: 3px; */
  
 }
 #card-containerC{
-  position:right;
+  /* position:right;
   top: 400px;
   left: 200px;
-  border: 3px;
+  border: 3px; */
 }
