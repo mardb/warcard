@@ -39,12 +39,14 @@ const game = {
 
   // deal 26 cards to each player
   splitDeal: function() {
-    console.log("This is the split deal function!");
+    console.log("This is the split deal function!", (cards.length / 2) - 1);
     for (let i = 0; i < 26; i++) {
       this.player.dealtCards.push(cards.pop());
       this.CPU.dealtCards.push(cards.pop());
-      // console.log(cards[i]);
+      // console.log(cards);
     }
+
+    this.gameplayLoop()
   },
 
   // payer clicks on the deck in order to choose the last card on the array of 26 cards
@@ -55,8 +57,8 @@ const game = {
     //deal out last card
     let playerLastCard = this.player.dealtCards.pop();
     let CPULastCard = this.CPU.dealtCards.pop();
-    console.log(`player card: ${playerLastCard.name}`); //
-    console.log(`CPU Card: ${CPULastCard.name}`);
+    // console.log(`player card: ${playerLastCard.name}`); //
+    // console.log(`CPU Card: ${CPULastCard.name}`);
 
     console.log("Compare values!");
     this.compareCards(playerLastCard, CPULastCard);
@@ -64,51 +66,51 @@ const game = {
 
   //figure out which card has higher value
   compareCards: function(playerCard, CPUCard) {
+    // Handle a tie  (ie. start a "War Round")
+    let playerWarCards;
+    let CPUWarCards;
     if (playerCard.value === CPUCard.value) {
-       this.player.dealtCards.splice(-3,0,)
-       this.CPU.dealtCards.pop()
-      let playerCards;
-      let CPUCards;
-      while(playerCards === CPUCards && cards.length > 4){
-        if(cards.length > 4){
-          this.playerCard.pop()
-          this.playerCard.pop()
-          this.playerCard.pop()
-          playerCards = playerCard[-1]
-          this.CPUCard.pop()
-          this.CPUCard.pop()
-          this.CPUCard.pop()
-          CPUCards = CPUCard[-1]
-
-        } else if(cards.length > 0){
-         playerCards = this.playerCard.pop()
-         CPUCards = this.CPUCard.pop()
-        } else {
-          if(playerCard[0] >CPUCard[0]){
-            this.player.score+=5
-          } else {
-            this.CPU.score+=5
-          }
-          if(this.player.score > this.CPU.score){
-            console.log('Congratulations! You won! ')
-          } else {
-            console.log('Im sorry, the computer won. Better luck next time!!')
-          }
-          
+      console.log(this.player.dealtCards)
+      console.log("WAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+      if(this.player.dealtCards.length > 4){
+        console.log(this)
+        this.player.dealtCards.pop()
+        this.player.dealtCards.pop()
+        this.player.dealtCards.pop()
+        playerWarCards =  this.player.dealtCards.pop()
+        this.CPU.dealtCards.pop()
+        this.CPU.dealtCards.pop()
+        this.CPU.dealtCards.pop()
+        CPUWarCards = this.CPU.dealtCards.pop()
+        
+        console.log( `THESE ARE THE WAR CARDS: ${playerWarCards}, ${CPUWarCards}`)
+        if(playerWarCards.value > CPUWarCards.value){
+          console.log('You win 5 points ')
+          this.player.score+=5
+        } else{
+          console.log('You lost the war')
+          this.CPU.score += 5
         }
+      } else if( this.player.dealtCards.length > 0){
+        playerWarCards =  this.player.dealtCards.pop()
+        console.log('You win 5 points ')
+        this.player.score+=5
+        CPUWarCards = this.CPU.dealtCards.pop()
+        console.log('You lost the war')
+        this.CPU.score += 5
       }
-       //pop 3 from player po 3 from CPU
-       //only save the last one I popped from each one(4th card)
-       //
+      
 
-       //winner get 5 points 
+      
+      // pop 3 from player.dealtCards pop 3 from CPU.dealtCards
+      // only compare the last one I popped from each one(4th card)
+      // winner get 5 points 
 
-
-      console.log("its a draw.. Both player score! ");
+    // if CPU wins the hand
     } else if (playerCard.value < CPUCard.value) {
       console.log("oh no!");
       this.CPU.score++;
-     
+    // if Player wins the hand
     } else if (playerCard.value > CPUCard.value) {
       console.log("You're doing great!");
       this.player.score++;
@@ -118,28 +120,27 @@ const game = {
   },
 
   //game will run til players run out of cards 
-endGame: function(){
-  while(game.player.dealtCards.length > 0){
-    this.gameplayLoop()
-  }
-},
+  endGame: function(){
+    while(game.player.dealtCards.length > 0){
+      this.gameplayLoop()
+    }
+  },
 
-// when game ends, the player with t
-winner: function(){
-if (this.player.score > this.CPU.score){
-  console.log(` You win!!!`)
-} else {
-  console.log(`Im Sorry, The computer won. Better luck next time!!`)
-}
-},
+  // when game ends, the player with t
+  winner: function(){
+    if (this.player.score > this.CPU.score){
+      console.log(` You win!!!`)
+    } else {
+      console.log(`Im Sorry, The computer won. Better luck next time!!`)
+    }
+  },
 
 
-init: function(){
-  console.log('Welcome to Game of War! You will be dealt 26 cards, and you will choose the top card of each deck. The player with the higher value card wins a point. Players play until cards run out!');
-  this.shuffle(cards);
-  this.splitDeal(cards);
-  this.gameplayLoop()
-},
+  init: function(){
+    console.log('Welcome to Game of War! You will be dealt 26 cards, and you will choose the top card of each deck. The player with the higher value card wins a point. Players play until cards run out!');
+    this.shuffle(cards);
+    this.splitDeal(cards);
+  },
   gameplayLoop: function() {
     console.log(this.player.dealtCards);
     console.log(this.CPU.dealtCards);
@@ -152,6 +153,45 @@ init: function(){
 game.init()
 game.endGame()
 game.winner()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // WAR SCENARIO
