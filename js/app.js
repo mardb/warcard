@@ -65,7 +65,14 @@ const game = {
   //figure out which card has higher value
   compareCards: function(playerCard, CPUCard) {
     if (playerCard.value === CPUCard.value) {
-       this.player.score++ && this.CPU.score++;
+       this.player.dealtCards.splice(-3,0,)
+       this.CPU.dealtCards.pop()
+       //pop 3 from player po 3 from CPU
+       //only save the last one I popped from each one(4th card)
+       //
+
+       //winner get 5 points 
+
 
       console.log("its a draw.. Both player score! ");
     } else if (playerCard.value < CPUCard.value) {
@@ -79,6 +86,75 @@ const game = {
     }
     console.log(`player: ${this.player.score} , CPU:${this.CPU.score}`)
   },
+
+  //game will run til players run out of cards 
+endGame: function(){
+  while(game.player.dealtCards.length > 0){
+    this.gameplayLoop()
+  }
+},
+
+// when game ends, the player with t
+winner: function(){
+if (this.player.score > this.CPU.score){
+  console.log(` You win!!!`)
+} else {
+  console.log(`Im Sorry, The computer won. Better luck next time!!`)
+}
+},
+
+
+init: function(){
+  console.log('Welcome to Game of War! You will be dealt 26 cards, and you will choose the top card of each deck. The player with the higher value card wins a point. Players play until cards run out!');
+  this.shuffle(cards);
+  this.splitDeal(cards);
+  this.gameplayLoop()
+},
+  gameplayLoop: function() {
+    console.log(this.player.dealtCards);
+    console.log(this.CPU.dealtCards);
+    this.playCard();
+    this.winner()
+    
+  }
+};
+
+game.init()
+game.endGame()
+
+//if 
+// 1. init function- shuffle(), splitDeal() cand calls gameplayLoop()
+// 2. gameplayLoop()- remove shuffle() and splitDeal(),
+//add playCard() , by default, play the last card on the array
+
+
+// WAR SCENARIO
+// if there's at least 4 cards left in the deck:
+// remove 3 cards, and then compare the 4th card
+// 3x pop()s, or a splice that removes 3 elements, followed by a pop that saves to variable
+// do the same for the CPU
+// compare the player and the CPU's saved card
+// save variables to represent the player and CPU cards
+// let playerCard;
+// let CPUCard;
+// do WAR scenario as long as this is true
+// while (playerCard === CPUCard && cards.length > 0) {
+//   if (there's at least 4 cards in the deck) {
+    // remove 3 cards from both player and CPU decks
+    // save the 4th card to a variable for each
+    // compare them
+  // } else {
+    // we know there's less than 4 cards in the deck
+    // so, we need to check against [0] and [0]
+    // we also need to make sure that we remove ALL cards in the array
+    // if not, our while loop will never end
+    // compare [0] and [0] and then award 5 score to the winner
+  // }
+// }
+
+
+
+
 
 
   //function that goes to war
@@ -100,41 +176,8 @@ const game = {
 // point gets added to score
 
 // },
-endGame: function(){
-  while(game.player.dealtCards.length > 0){
-    this.gameplayLoop()
-  }
-},
 
-init: function(){
-  console.log('Welcome to Game of War! You will be dealt 26 cards, and you will choose the top card of each deck. The player with the higher value card wins a point. Players play until cards run out!');
-  this.shuffle(cards);
-  this.splitDeal(cards);
-  this.gameplayLoop()
-},
-  gameplayLoop: function() {
-    console.log(this.player.dealtCards);
-    console.log(this.CPU.dealtCards);
-    this.playCard();
-    // this.compareCards()
-    // console.log(cards);
-  }
-};
-// console.log(game.shuffle(cards))
-game.init()
-game.endGame()
-// game.gameplayLoop()
 
-// console.log(game.player.dealtCards);
-// console.log(game.CPU.dealtCards);
-// console.log(game.player);
-
-// game.playCard();
-
-//if 
-// 1. init function- shuffle(), splitDeal() cand calls gameplayLoop()
-// 2. gameplayLoop()- remove shuffle() and splitDeal(),
-//add playCard() , by default, play the last card on the array
 
 //the card with highest value will will both cards and put them in another array (used cards)
 //*******show the player whether they won or lost that round and the score
