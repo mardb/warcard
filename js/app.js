@@ -69,7 +69,7 @@ const game = {
        this.CPU.dealtCards.pop()
       let playerCards;
       let CPUCards;
-      while(playerCards === CPUCards && cards.length > 0){
+      while(playerCards === CPUCards && cards.length > 4){
         if(cards.length > 4){
           this.playerCard.pop()
           this.playerCard.pop()
@@ -144,13 +144,14 @@ init: function(){
     console.log(this.player.dealtCards);
     console.log(this.CPU.dealtCards);
     this.playCard();
-    this.winner()
+    // this.winner()
     
   }
 };
 
 game.init()
 game.endGame()
+game.winner()
 
 
 // WAR SCENARIO
