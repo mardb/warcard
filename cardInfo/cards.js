@@ -3,7 +3,7 @@ const cards = [
   {name:'2 of Diamonds' , value:2 , img: '2D.png'},
   {name:'2 of Spades' , value:2, img: '2S.png'},
   {name:'2 of Hearts' , value:2 , img: '2H.png'},
-  {name:'3 of Clubs' , value:3 , img: '.3Cpng'},
+  {name:'3 of Clubs' , value:3 , img: '3C.png'},
   {name:'3 of Diamonds' , value:3 , img: '3D.png'},
   {name:'3 of Spades' , value:3 , img: '3S.png'},
   {name:'3 of Hearts' , value:3 , img: '3H.png'},
