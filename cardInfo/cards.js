@@ -53,3 +53,4 @@ const cards = [
   {name:'A\'s of Hearts' , value:14 , img: 'AH.png'},
   
 ]
+cardBackground =[{name:'cardBackground' ,  img: 'cardBackgroundImg.png'}]

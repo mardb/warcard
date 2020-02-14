@@ -10,7 +10,9 @@ console.log("Welcome to Game of War! ");
 let winner; 
 
 //cache variables 
+
 let playerDeck =document.getElementById('playerDealtCards');
+let playerPlayingCard = document.getElementById('playerPlayingCard')
 let cpuDeck = document.getElementById('cpuDealtCards');
 let scoreBoard = document.getElementsByClassName('scoreBoard');
 let dealButton = document.getElementById('dealButton');
@@ -159,11 +161,16 @@ const game = {
     // cardImg.className = "cardback";
     // playerDeck.appendChild(cardImg);
 
+    //3 buttons and 3 event listeners to run those 3 functions 
 
     let cardImg = document.createElement("img");
+    let cardBackground = document.createElement('img')
     cardImg.src = `../cardInfo/cardImg/${this.player.dealtCards[0].img}`;
     cardImg.className = "cardback";
-    playerDeck.appendChild(cardImg);
+    cardBackground.className="cardback";
+    cardBackground.src = `../cardInfo/cardImg/cardBackgroundImg.png`
+    playerPlayingCard.appendChild(cardImg);
+    playerDealtCards.appendChild(cardBackground)
     
     cpuDeck;
   },
