@@ -33,6 +33,17 @@ User with the most points when the cards run out is the winner.
 The player can choose the amount of rounds.
 Example:  best of 5, best of 10 wins the game
 
+---
+
+### Languages
+-HTML
+-CSS
+Javascript
+
+### Libraries 
+
+-Bootstrap
+
 
 ### Prototype
 https://www.figma.com/proto/VFutyLXZ4i2P8LeNdhETU5/Untitled?node-id=40%3A178&scaling=min-zoom <br>
