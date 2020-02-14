@@ -1,3 +1,8 @@
+*{
+  margin:0;
+ 
+}
+
 body {
   background-color: #308834 ;
   
@@ -9,13 +14,22 @@ header {
   font-weight: bold;
   display: block;
   text-align: center;
+  height: 15vh ; 
+
   /* margin-top: 20px; */
   /* margin-bottom: 10px; */
   
 }
 main{
   /* float: left; */
+  height: 75vh;
+  display: flex;
+  flex-direction: row;
 }
+footer{
+  height: 15vh; 
+}
+
 #playerContainer{
   margin:0 0 10px;
   padding: 10px 20px;
@@ -37,7 +51,7 @@ main{
   border-radius: 12.5px;
   background-color:grey;
   box-shadow: 2px 2px 1px #302e2e;
-  float: right;
+  /* float: right; */
 }
 
 .cpuDealtCards{
@@ -51,9 +65,17 @@ main{
   
 }
 aside {
-  float: right;
+  /* width:10vw; */
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
   border: 1px black solid;
   padding: 5px;
+  width: 25vw;
+}
+
+section{
+  width: 70vw;
 }
 
 #card-containerP{

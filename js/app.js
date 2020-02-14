@@ -145,13 +145,16 @@ const game = {
     console.log(this.player.dealtCards);
     console.log(this.CPU.dealtCards);
     this.playCard();
+
     // this.winner()
     
   }
 };
 
 game.init()
+game.gameplayLoop()
 game.endGame()
+
 game.winner()
 
 
