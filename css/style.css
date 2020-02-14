@@ -4,7 +4,9 @@
 }
 
 body {
-  background-color: #308834 ;
+  /* background-color: #308834 ; */
+  background: rgb(43,71,15);
+background: linear-gradient(0deg, rgba(43,71,15,1) 0%, rgba(104,107,77,1) 49%, rgba(43,71,15,1) 100%);
 }
 
 header {
@@ -21,16 +23,16 @@ header {
 }
 main{
   /* float: left; */
-  height: 75vh;
+  /* height: 75vh; */
   display: flex;
   flex-direction: row;
-  border: 1px black solid;
+  /* border: 1px black solid; */
   margin: 10px 5px;
   
 }
 footer{
   height: 5vh; 
-  border: 1px black solid;
+  /* border: 1px black solid; */
   
 }
 
@@ -38,7 +40,9 @@ footer{
   margin:0 0 10px;
   padding: 10px 20px;
   border-radius: 10px;
-  background-color: #1A4A1C;
+  /* background-color: #1A4A1C; */
+  background: rgb(151,153,129);
+background: linear-gradient(0deg, rgba(151,153,129,1) 6%, rgba(204,236,198,1) 50%, rgba(149,150,126,1) 94%);
   height:45%;
   box-shadow: 2px 2px 1px #302e2e;
 }
@@ -47,7 +51,9 @@ footer{
   margin:0 0 10px;
   padding: 10px 20px;
   border-radius: 10px;
-  background-color: #1A4A1C;
+  /* background-color: #1A4A1C; */
+  background: rgb(151,153,129);
+background: linear-gradient(0deg, rgba(151,153,129,1) 6%, rgba(204,236,198,1) 50%, rgba(149,150,126,1) 94%);
   height:45%;
   box-shadow: 2px 2px 1px #302e2e;
 }
@@ -77,19 +83,25 @@ aside {
   display: flex;
   justify-content: center;
   align-items: end;
-  border: 1px black solid;
+  /* border: 1px black solid; */
   margin: 25px;
   padding: 5px;
-  width: 25vw;
+  width: 25%;
   height: 65vh;
   border-radius: 12.5px;
-  background-color: #1A4A1C;
-  box-shadow: 2px 2px 1px #302e2e;
+  /* background-color: #1A4A1C; */
+  background: rgb(151,153,129);
+background: linear-gradient(0deg, rgba(151,153,129,1) 6%, rgba(204,236,198,1) 50%, rgba(149,150,126,1) 94%);
+  color: yellow;
+  font-size: 50px;
+  font-weight: 200;
+  text-align: center;
 
 }
 
 #dealButton{
-  box-shadow: 2px 2px 1px #302e2e
+  box-shadow: 2px 2px 1px #302e2e;
+  justify-content: center;
   
 }
 
@@ -119,7 +131,3 @@ section{
   height: 100%;
 }
 
-.scoreBoard{
-  position: absolute; 
-  top: 0; left: 0; 
-}

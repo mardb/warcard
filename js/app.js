@@ -5,7 +5,7 @@ console.log("sanity check");
 //start game
 //print welcome to war game
 console.log("Welcome to Game of War! ");
-
+alert("Welcome to Game of War! You will be dealt 26 cards, and you will choose the top card of each deck. The player with the higher value card wins a point. Players play until cards run out! Please press 'OK' to enter")
 //state variables
 let winner;
 
@@ -196,15 +196,9 @@ const game = {
     });
 
 
-
-
-
-
     //     //event listener
     // dealButton = document.getElementById('dealButton');
     // dealButton.button.eventListener('click', dealCardsButton);
-
-
 
 
 
