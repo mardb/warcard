@@ -13,7 +13,10 @@ let winner;
 
 let playerDeck =document.getElementById('playerDealtCards');
 let playerPlayingCard = document.getElementById('playerPlayingCard')
+
 let cpuDeck = document.getElementById('cpuDealtCards');
+let cpuPlayingCard = document.getElementById('cpuPlayingCard')
+
 let scoreBoard = document.getElementsByClassName('scoreBoard');
 let dealButton = document.getElementById('dealButton');
 
@@ -137,6 +140,7 @@ const game = {
   endGame: function(){
     while(game.player.dealtCards.length > 0){
       this.gameplayLoop()
+      //get gamelop func and tie to a button only run when button is clicked
     }
   },
 
@@ -162,17 +166,35 @@ const game = {
     // playerDeck.appendChild(cardImg);
 
     //3 buttons and 3 event listeners to run those 3 functions 
+//adds a background image to the player dealt cards deck and adds the first card in hand  array
+    let playerCardImg = document.createElement("img");
+    let playerCardBackground = document.createElement('img')
+    playerCardImg.src = `../cardInfo/CardImg/${this.player.dealtCards[0].img}`;
+    playerCardImg.className = "cardback";
+    playerCardBackground.className="cardback";
+    playerCardBackground.src = `../cardInfo/CardImg/cardBackgroundImg.png`
+    playerPlayingCard.appendChild(playerCardImg);
+    playerDealtCards.appendChild(playerCardBackground)
 
-    let cardImg = document.createElement("img");
-    let cardBackground = document.createElement('img')
-    cardImg.src = `../cardInfo/cardImg/${this.player.dealtCards[0].img}`;
-    cardImg.className = "cardback";
-    cardBackground.className="cardback";
-    cardBackground.src = `../cardInfo/cardImg/cardBackgroundImg.png`
-    playerPlayingCard.appendChild(cardImg);
-    playerDealtCards.appendChild(cardBackground)
-    
-    cpuDeck;
+
+
+    //adds a background Image to the CPU dealt cards deck and adds the first cand in hadn array
+
+    let cpuCardImg = document.createElement("img");
+    let cpuCardBackground = document.createElement('img')
+    cpuCardImg.src = `../cardInfo/CardImg/${this.CPU.dealtCards[this.CPU.dealtCards.length -1].img}`;
+    console.log(cpuCardImg)
+    cpuCardImg.className = "cardback";
+    cpuCardBackground.className="cardback";
+    cpuCardBackground.src = `../cardInfo/CardImg/cardBackgroundImg.png`
+    cpuPlayingCard.appendChild(cpuCardImg);
+    cpuDealtCards.appendChild(cpuCardBackground)
+
+    // cpuDeck;
+
+
+
+
   },
   gameplayLoop: function() {
     console.log(this.player.dealtCards);
