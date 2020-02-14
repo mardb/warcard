@@ -39,4 +39,11 @@ https://www.figma.com/proto/VFutyLXZ4i2P8LeNdhETU5/Untitled?node-id=40%3A178&sca
 
 ### GitHub link
 
+
+
+### TODO: 
+**Add more event listeners:**
+-button to deal
+-add more card slots to go to war
+
 ---

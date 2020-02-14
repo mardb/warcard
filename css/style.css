@@ -21,6 +21,10 @@ header {
   /* margin-bottom: 10px; */
   
 }
+h2{
+  font-size: 70px;
+  font-weight: bold;
+}
 main{
   /* float: left; */
   /* height: 75vh; */
