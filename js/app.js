@@ -11,8 +11,12 @@ let winner;
 
 //cache variables 
 let playerDeck =document.getElementById('playerDealtCards');
+let cpuDeck = document.getElementById('cpuDealtCards');
 let scoreBoard = document.getElementsByClassName('scoreBoard');
 let dealButton = document.getElementById('dealButton');
+
+//
+
 
 const game = {
   //objects for player and CPU
@@ -148,6 +152,20 @@ const game = {
     console.log('Welcome to Game of War! You will be dealt 26 cards, and you will choose the top card of each deck. The player with the higher value card wins a point. Players play until cards run out!');
     this.shuffle(cards);
     this.splitDeal(cards);
+    
+    //make card back show up
+    // let cardImg = document.createElement("img");
+    // cardImg.src = "../cardInfo/cardImg/10C.png";
+    // cardImg.className = "cardback";
+    // playerDeck.appendChild(cardImg);
+
+
+    let cardImg = document.createElement("img");
+    cardImg.src = `../cardInfo/cardImg/${this.player.dealtCards[0].img}`;
+    cardImg.className = "cardback";
+    playerDeck.appendChild(cardImg);
+    
+    cpuDeck;
   },
   gameplayLoop: function() {
     console.log(this.player.dealtCards);
@@ -162,7 +180,6 @@ const game = {
 game.init()
 game.gameplayLoop()
 game.endGame()
-
 game.winner()
 
 

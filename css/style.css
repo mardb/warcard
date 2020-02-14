@@ -22,7 +22,7 @@ header {
 }
 main{
   /* float: left; */
-  height: 70vh;
+  height: 75vh;
   display: flex;
   flex-direction: row;
   border: 1px black solid;
@@ -30,7 +30,7 @@ main{
   
 }
 footer{
-  height: 10vh; 
+  height: 5vh; 
   border: 1px black solid;
   
 }
@@ -48,7 +48,7 @@ footer{
   margin:0 0 10px;
   padding: 10px 20px;
   border-radius: 10px;
-  background-color: rgb(5, 112, 8);
+  background-color: #1A4A1C;
   height:45%;
   box-shadow: 2px 2px 1px #302e2e;
 }
@@ -90,24 +90,31 @@ aside {
 }
 
 #dealButton{
-  
+  box-shadow: 2px 2px 1px #302e2e
 }
 
 section{
   width: 70vw;
 }
 
-#card-containerP{
 
-  /* position: absolute;
-  top: 200px;
-  left: 200px;
-  border: 3px; */
- 
+
+#cpuContainer{
+  display: flex;
 }
-#card-containerC{
-  /* position:right;
-  top: 400px;
-  left: 200px;
-  border: 3px; */
+#playerContainer{
+  display: flex;
+}
+
+.playerDealtCards {
+  margin: 10px;
+}
+
+.cpuDealtCards {
+  margin:10px;
+}
+
+.cardback {
+  width: 100%;
+  height: 100%;
 }
