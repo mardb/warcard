@@ -6,6 +6,14 @@ console.log("sanity check");
 //print welcome to war game
 console.log("Welcome to Game of War! ");
 
+//state variables 
+let winner; 
+
+//cache variables 
+let playerDeck =document.getElementById('playerDealtCards');
+let scoreBoard = document.getElementsByClassName('scoreBoard');
+let dealButton = document.getElementById('dealButton');
+
 const game = {
   //objects for player and CPU
   player: {

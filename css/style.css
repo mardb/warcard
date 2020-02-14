@@ -22,12 +22,17 @@ header {
 }
 main{
   /* float: left; */
-  height: 75vh;
+  height: 70vh;
   display: flex;
   flex-direction: row;
+  border: 1px black solid;
+  margin: 10px 5px;
+  
 }
 footer{
-  height: 15vh; 
+  height: 10vh; 
+  border: 1px black solid;
+  
 }
 
 #playerContainer{
@@ -35,6 +40,8 @@ footer{
   padding: 10px 20px;
   border-radius: 10px;
   background-color: #1A4A1C;
+  height:45%;
+  box-shadow: 2px 2px 1px #302e2e;
 }
 
 #cpuContainer{
@@ -42,6 +49,8 @@ footer{
   padding: 10px 20px;
   border-radius: 10px;
   background-color: rgb(5, 112, 8);
+  height:45%;
+  box-shadow: 2px 2px 1px #302e2e;
 }
 
 .playerDealtCards{
@@ -67,11 +76,21 @@ footer{
 aside {
   /* width:10vw; */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: end;
   border: 1px black solid;
+  margin: 25px;
   padding: 5px;
   width: 25vw;
+  height: 65vh;
+  border-radius: 12.5px;
+  background-color: #1A4A1C;
+  box-shadow: 2px 2px 1px #302e2e;
+
+}
+
+#dealButton{
+  
 }
 
 section{
