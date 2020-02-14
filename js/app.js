@@ -116,8 +116,7 @@ const game = {
         console.log('You lost the war')
         this.CPU.score += 5
       }
-      
-
+    
       
       // pop 3 from player.dealtCards pop 3 from CPU.dealtCards
       // only compare the last one I popped from each one(4th card)
@@ -204,12 +203,32 @@ const game = {
     // this.winner()
     
   }
+
+
+
+
+
 };
+
+
 
 game.init()
 game.gameplayLoop()
 game.endGame()
 game.winner()
+
+
+resetButton= document.getElementById('resetButton');
+resetButton.addEventListener('click', gameRestart);
+
+function gameRestart(){
+  game.init();
+  game.gameplayLoop();
+  game.player.score=0;
+  game.CPU.score=0;
+
+}
+
 
 
 
