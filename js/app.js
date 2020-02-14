@@ -147,11 +147,11 @@ const game = {
 
     if (playerCardImg) {
       // check if the playerCardImg exists. it will not exist until the DOM renders.
-      playerCardImg.src = `../cardInfo/CardImg/${playerCard.img}`; // change the src of the image to the current playerCard
+      playerCardImg.src = `../cardInfo/cardImg/${playerCard.img}`; // change the src of the image to the current playerCard
     }
     if (cpuCardImg) {
       // check if the cpuCardImg exists. it will not exist until the DOM renders.
-      cpuCardImg.src = `../cardInfo/CardImg/${CPUCard.img}`; // change the src of the image to the current CPUCard
+      cpuCardImg.src = `../cardInfo/cardImg/${CPUCard.img}`; // change the src of the image to the current CPUCard
     }
   },
 
