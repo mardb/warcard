@@ -63,11 +63,14 @@ const game = {
       // console.log(cards);
     }
 
-    this.gameplayLoop()
+    // this.gameplayLoop()
   },
 
   // payer clicks on the deck in order to choose the last card on the array of 26 cards
   //cpu clicks on the deck in order to choose the last card on the array of 26 cards
+
+//onclick run playCard()
+//take out of gameplayloop()
 
   //prints to array
   playCard: function(card) {
@@ -79,16 +82,20 @@ const game = {
 
     console.log("Compare values!");
     this.compareCards(playerLastCard, CPULastCard);
+
+    
   },
 
   //figure out which card has higher value
   compareCards: function(playerCard, CPUCard) {
+    // addEventListener('click')
     // Handle a tie  (ie. start a "War Round")
     let playerWarCards;
     let CPUWarCards;
     if (playerCard.value === CPUCard.value) {
+      message.textContent = "GO TO WAR!!!!"
       console.log(this.player.dealtCards)
-      console.log("WAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+      console.log("WAR!!!!!!!!!!!!!!!!!!!")
       if(this.player.dealtCards.length > 4){
         console.log(this)
         this.player.dealtCards.pop()
@@ -116,6 +123,7 @@ const game = {
         console.log('You lost the war')
         this.CPU.score += 5
       }
+     
     
       
       // pop 3 from player.dealtCards pop 3 from CPU.dealtCards
@@ -133,7 +141,12 @@ const game = {
       // console.log(this.player.score)
     }
     console.log(`player: ${this.player.score} , CPU:${this.CPU.score}`)
-  },
+
+  document.getElementById("player1Score").innerHTML = `Player Score: ${this.player.score}`;
+    document.getElementById("cpuScore").innerHTML = `Computer Score: ${this.CPU.score}`;
+
+},
+
 
   //game will run til players run out of cards 
   endGame: function(){
@@ -157,12 +170,16 @@ const game = {
     console.log('Welcome to Game of War! You will be dealt 26 cards, and you will choose the top card of each deck. The player with the higher value card wins a point. Players play until cards run out!');
     this.shuffle(cards);
     this.splitDeal(cards);
+//     //event listener
+// dealButton = document.getElementById('dealButton');
+// dealButton.button.eventListener('click', dealCardsButton);
+
+
+function dealCardsButton(){
+
+}
     
-    //make card back show up
-    // let cardImg = document.createElement("img");
-    // cardImg.src = "../cardInfo/cardImg/10C.png";
-    // cardImg.className = "cardback";
-    // playerDeck.appendChild(cardImg);
+    
 
     //3 buttons and 3 event listeners to run those 3 functions 
 //adds a background image to the player dealt cards deck and adds the first card in hand  array
@@ -213,13 +230,13 @@ const game = {
 
 
 game.init()
-game.gameplayLoop()
+// game.gameplayLoop()
 game.endGame()
 game.winner()
 
 
-resetButton= document.getElementById('resetButton');
-resetButton.addEventListener('click', gameRestart);
+// resetButton= document.getElementById('resetButton');
+// resetButton.addEventListener('click', gameRestart);
 
 function gameRestart(){
   game.init();
