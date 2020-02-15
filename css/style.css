@@ -70,6 +70,7 @@ background: linear-gradient(0deg, rgba(151,153,129,1) 6%, rgba(204,236,198,1) 50
   background-color:grey;
   box-shadow: 2px 2px 1px #302e2e;
   /* float: right; */
+  margin: 10px;
 }
 
 .cpuDealtCards{
@@ -80,6 +81,7 @@ background: linear-gradient(0deg, rgba(151,153,129,1) 6%, rgba(204,236,198,1) 50
   border-radius: 12.5px;
   background-color:grey;
   box-shadow: 2px 2px 1px #302e2e;
+  margin:10px;
   
 }
 aside {
@@ -122,16 +124,27 @@ section{
   display: flex;
 }
 
-.playerDealtCards {
-  margin: 10px;
-}
-
-.cpuDealtCards {
-  margin:10px;
-}
-
 .cardback {
   width: 100%;
   height: 100%;
 }
 
+.cpuFacingDownCards{
+  height: 200px;
+  width: 125px;
+  border: 1px solid gray;
+  border-radius: 12.5px;
+  background-color:grey;
+  box-shadow: 2px 2px 1px #302e2e;
+  margin: 10px;
+}
+
+.playerFacingDownCards{
+  height: 200px;
+  width: 125px;
+  border: 1px solid gray;
+  border-radius: 12.5px;
+  background-color:grey;
+  box-shadow: 2px 2px 1px #302e2e;
+  margin: 10px;
+}

@@ -184,7 +184,7 @@ const game = {
     this.splitDeal(cards);
 
     let gameObject = this; // save the game object (which contains all our logic and players) into a new variable.	
-    document.getElementById("playerPlayingCard").addEventListener("click", function() {	
+    document.getElementById("playerDealtCards").addEventListener("click", function() {	
       // inside the event listener, when the player clicks the card, the variable "this" changes to refer to the <div> the player just clicked.	
       // for example, if we wanted to get the player's dealtCards we would use gameObject.player.dealtCards instead of this.player.dealtCards	
       // we only have to do this weird stuff inside the event listeners.	
