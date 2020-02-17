@@ -26,7 +26,7 @@ let dealButton = document.getElementById("dealButton");
 let playerCardImg; // changed the variable to access globally.
 let cpuCardImg; // changed the variable to access globally.
 
-let playerCurrentDealtCard ;//global object to removeChild
+let playerCurrentDealtCard; //global object to removeChild
 let cpuCurrentDealtCard;
 
 const game = {
@@ -63,13 +63,13 @@ const game = {
   splitDeal: function() {
     console.log("This is the split deal function!", cards.length / 2 - 1);
     // for (let i = 0; i < 26; i++) {
-      
-      // this.player.dealtCards.push(cards.pop());
-      // this.CPU.dealtCards.push(cards.pop());
-      // console.log(cards);
+
+    // this.player.dealtCards.push(cards.pop());
+    // this.CPU.dealtCards.push(cards.pop());
+    // console.log(cards);
     // }
-    this.player.dealtCards = cards.splice(0, 26)
-    this.CPU.dealtCards = cards
+    this.player.dealtCards = cards.splice(0, 26);
+    this.CPU.dealtCards = cards;
     // this.playCard(); // play the first round here to get the game started.
 
     // this.gameplayLoop()
@@ -84,19 +84,15 @@ const game = {
   //prints to array
   playCard: function(card) {
     //deal out last card
-  
-    
 
     let playerLastCard = this.player.dealtCards.pop();
     let CPULastCard = this.CPU.dealtCards.pop();
 
-
-
     playerCardImg = document.createElement("img"); //im not using const or let because I set as global variable
     playerCardImg.src = `../cardInfo/CardImg/${playerLastCard.img}`;
     playerCardImg.className = "cardback";
-    if(playerCurrentDealtCard){
-      playerPlayingCard.removeChild(playerCurrentDealtCard)
+    if (playerCurrentDealtCard) {
+      playerPlayingCard.removeChild(playerCurrentDealtCard);
     }
     playerPlayingCard.appendChild(playerCardImg);
     playerCurrentDealtCard = playerCardImg;
@@ -105,18 +101,18 @@ const game = {
 
     cpuCardImg = document.createElement("img"); //im not using const or let because I set as global variable
     cpuCardImg.src = `../cardInfo/CardImg/${
-      //top card on the deck aka last on the array 
+      //top card on the deck aka last on the array
       CPULastCard.img
     }`;
     cpuCardImg.className = "cardback";
-    if(cpuCurrentDealtCard){
-      cpuPlayingCard.removeChild(cpuCurrentDealtCard)
+    if (cpuCurrentDealtCard) {
+      cpuPlayingCard.removeChild(cpuCurrentDealtCard);
     }
- 
+
     cpuPlayingCard.appendChild(cpuCardImg);
     cpuCurrentDealtCard = cpuCardImg;
 
-    // console.log(`player card: ${playerLastCard.name}`); 
+    // console.log(`player card: ${playerLastCard.name}`);
     // console.log(`CPU Card: ${CPULastCard.name}`);
 
     console.log("Compare values!");
@@ -155,6 +151,28 @@ const game = {
           this.CPU.score += 5;
         }
 
+        // - create stand alone dom node
+        // - then, add src attribute to it, plus also the 'cardback' class
+        // - then select existing dom Node from the dom tree
+        // - then append the Img dom node to the warCard container
+        playerWarImg = document.createElement("img"); 
+        playerWarImg.src = `../cardInfo/CardImg/${playerWarCards.img}`;
+        playerWarImg.classList.add('cardback');  
+        playerWarCardContainer = document.getElementById("playerWarCard");
+        playerWarCardContainer.appendChild(playerWarImg);
+
+        cpuWarImg = document.createElement("img"); 
+        cpuWarImg.src = `../cardInfo/CardImg/${cpuWarCards.img}`;
+        cpuWarImg.classList.add('cardback');   
+        cpuWarCardContainer = document.getElementById("cpuWarCard");
+        cpuWarCardContainer.appendChild(cpuWarImg);
+
+
+
+        /************************************************ */
+        //in the dom find the 2 war card ids and append image tag with src value
+        //example: document.getElementById('cpuWarCard').append('<img src=../cardInfo/CardImg/${playerWarCards.img}/>')
+        //*********************************************** */
       } else if (this.player.dealtCards.length > 0) {
         console.log(this);
         playerWarCards = this.player.dealtCards.pop();
@@ -187,7 +205,7 @@ const game = {
     document.getElementById(
       "cpuScore"
     ).innerHTML = `Computer Score: ${this.CPU.score}`;
-// --------------------------
+    // --------------------------
     if (playerCardImg) {
       // check if the playerCardImg exists. it will not exist until the DOM renders.
       playerCardImg.src = `../cardInfo/CardImg/${playerCard.img}`; // change the src of the image to the current playerCard
@@ -197,6 +215,9 @@ const game = {
       cpuCardImg.src = `../cardInfo/CardImg/${CPUCard.img}`; // change the src of the image to the current CPUCard
     }
   },
+
+  //get document by id and set the source.
+  // get the id of elements in the dom and set the src on it ex:  playerCardImg.src
 
   //game will run til players run out of cards
   // endGame: function() {
@@ -211,10 +232,9 @@ const game = {
     if (this.player.score > this.CPU.score) {
       console.log(` You win!!!`);
       alert(` You win!!!`); // show an alert to the window so the user knows the game ended.
-    } else if(this.player.score === this.CPU.score){
+    } else if (this.player.score === this.CPU.score) {
       console.log("It's a tie! Please Play Again! ");
-    }
-      else{
+    } else {
       console.log(`Im Sorry, The computer won. Better luck next time!!`);
       alert(`Im Sorry, The computer won. Better luck next time!!`); // show an alert to the window so the user knows the game ended.
     }
@@ -227,20 +247,17 @@ const game = {
     this.shuffle(cards);
     this.splitDeal(cards);
 
-
     //     //event listener
     // dealButton = document.getElementById('dealButton');
     // dealButton.button.eventListener('click', dealCardsButton);
 
     // dealButton.addEventListener("click", function() {
-    //   splitDeal(cards);    
+    //   splitDeal(cards);
     // });
     let playerCardBackground = document.createElement("img");
     playerCardBackground.className = "cardback";
     playerCardBackground.src = `../cardInfo/CardImg/cardBackgroundImg.png`;
     playerDealtCards.appendChild(playerCardBackground);
-    
-
 
     let cpuCardBackground = document.createElement("img");
     cpuCardBackground.className = "cardback";
@@ -248,8 +265,6 @@ const game = {
     cpuDealtCards.appendChild(cpuCardBackground);
     //3 buttons and 3 event listeners to run those 3 functions
     //adds a background image to the player dealt cards deck and adds the first card in hand  array
-
-   
 
     //generate facedown cards
     // let cpuFacedownCards = document.querySelectorAll('.cpuFacingDownCards');
@@ -267,16 +282,16 @@ const game = {
     //   card.appendChild(playerCard);
     // })
   },
-  
+
   gameplayLoop: function() {
     console.log(this.player.dealtCards);
     console.log(this.CPU.dealtCards);
- 
-    if(this.player.dealtCards.length === 0 ){
-      this.winner() 
+
+    if (this.player.dealtCards.length === 0) {
+      this.winner();
       return;
     } else {
-      this.playCard()
+      this.playCard();
     }
 
     // this.winner()
@@ -285,12 +300,15 @@ const game = {
 
 // game.init();
 //run game on deal button click
-document.getElementById("dealButton")
-.addEventListener("click", function() {
-  game.init();
+let flag = true;
+document.getElementById("dealButton").addEventListener("click", function() {
+  if(flag){
+    game.init()
+  };
   // game.gameplayLoop();
   // game.player.score = 0;
   // game.CPU.score = 0;
+  flag=false;
 });
 // game.gameplayLoop()
 // game.endGame();
@@ -298,12 +316,12 @@ document.getElementById("dealButton")
 
 // resetButton= document.getElementById('resetButton');
 // resetButton.addEventListener('click', gameRestart);
-document.getElementById("playerDealtCards")
-.addEventListener("click", function() {
-  // game.init();
-  game.gameplayLoop();
-  
-});
+document
+  .getElementById("playerDealtCards")
+  .addEventListener("click", function() {
+    // game.init();
+    game.gameplayLoop();
+  });
 function gameRestart() {
   // game.init();
   // game.gameplayLoop();
@@ -311,14 +329,13 @@ function gameRestart() {
   // game.CPU.score = 0;
 }
 
-
 //create a single class for both CPU and Player decks
 //continue breaking down game loop into individual functions
 //bind individual functions to correct DOM elements (dealcards on the first player's card)
 //work on war if/else condition
-  //if war, the player card should launch the war functions
-  //the war results show on the cards display area
-  //war results play out on area with timed functions instead of running instantly
+//if war, the player card should launch the war functions
+//the war results show on the cards display area
+//war results play out on area with timed functions instead of running instantly
 
 // for cards
 //cards missing css components

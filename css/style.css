@@ -62,7 +62,7 @@ background: linear-gradient(0deg, rgba(151,153,129,1) 6%, rgba(204,236,198,1) 50
   box-shadow: 2px 2px 1px #302e2e;
 }
 
-.playerDealtCards{
+.playerDealtCards, .playerFacingUpCard{
   height: 200px;
   width: 125px;
   border: 1px solid gray;
@@ -73,7 +73,7 @@ background: linear-gradient(0deg, rgba(151,153,129,1) 6%, rgba(204,236,198,1) 50
   margin: 10px;
 }
 
-.cpuDealtCards{
+.cpuDealtCards, .cpuFacingUpCard{
 
   height: 200px;
   width: 125px;
