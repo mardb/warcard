@@ -138,12 +138,12 @@ const game = {
         this.CPU.dealtCards.pop();
         this.CPU.dealtCards.pop();
         this.CPU.dealtCards.pop();
-        CPUWarCards = this.CPU.dealtCards.pop();
+        cpuWarCards = this.CPU.dealtCards.pop();
 
         console.log(
-          `THESE ARE THE WAR CARDS: ${playerWarCards.value}, ${CPUWarCards.value}`
+          `THESE ARE THE WAR CARDS: ${playerWarCards.value}, ${cpuWarCards.value}`
         );
-        if (playerWarCards.value > CPUWarCards.value) {
+        if (playerWarCards.value > cpuWarCards.value) {
           console.log("You win 5 points ");
           this.player.score += 5;
         } else {
