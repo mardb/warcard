@@ -89,7 +89,7 @@ const game = {
     let CPULastCard = this.CPU.dealtCards.pop();
 
     playerCardImg = document.createElement("img"); //im not using const or let because I set as global variable
-    playerCardImg.src = `../cardInfo/CardImg/${playerLastCard.img}`;
+    playerCardImg.src = `../cardInfo/cardImg/${playerLastCard.img}`;
     playerCardImg.className = "cardback";
     if (playerCurrentDealtCard) {
       playerPlayingCard.removeChild(playerCurrentDealtCard);
@@ -100,7 +100,7 @@ const game = {
     //adds a background Image to the CPU dealt cards deck and adds the first cand in hadn array
 
     cpuCardImg = document.createElement("img"); //im not using const or let because I set as global variable
-    cpuCardImg.src = `../cardInfo/CardImg/${
+    cpuCardImg.src = `../cardInfo/cardImg/${
       //top card on the deck aka last on the array
       CPULastCard.img
     }`;
