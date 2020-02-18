@@ -118,6 +118,19 @@ const game = {
     console.log("Compare values!");
     this.compareCards(playerLastCard, CPULastCard);
   },
+  removeCardsFromWarSpot: function() {
+    let card1 = document.getElementById("playerWarCard").lastElementChild;
+    if (card1 != null) {
+      document.getElementById("playerWarCard").removeChild(card1);
+    }
+    let card2 = document.getElementById("cpuWarCard").lastElementChild;
+    if (card2 != null) {
+      document.getElementById("cpuWarCard").removeChild(card2);
+    }
+  },
+  
+
+  
 
   //figure out which card has higher value
   compareCards: function(playerCard, CPUCard) {
@@ -125,7 +138,13 @@ const game = {
     // Handle a tie  (ie. start a "War Round")
     let playerWarCards;
     let CPUWarCards;
+    this.removeCardsFromWarSpot();
+
     if (playerCard.value === CPUCard.value) {
+
+      //check if there are any cards in the war spot
+      
+
       // message.textContent = "GO TO WAR!!!!"//errors
       console.log(this.player.dealtCards);
       console.log("WAR!!!!!!!!!!!!!!!!!!!");
@@ -150,6 +169,8 @@ const game = {
           console.log("You lost the war");
           this.CPU.score += 5;
         }
+//faceDown cards 
+
 
         // - create stand alone dom node
         // - then, add src attribute to it, plus also the 'cardback' class
@@ -282,6 +303,9 @@ const game = {
     //   card.appendChild(playerCard);
     // })
   },
+
+
+
 
   gameplayLoop: function() {
     console.log(this.player.dealtCards);
